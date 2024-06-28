@@ -44,3 +44,12 @@ steps:
     echo "Emulator started"
     echo "##[endgroup]"
   displayName: 'Start Emulator'
+
+- script: |
+    echo "##[group]Capture Emulator Screenshot"
+    mkdir -p screenshots
+    $ANDROID_HOME/platform-tools/adb shell screencap -p | sed 's/\r$//' > screenshot.png
+    mv screenshot.png screenshots/
+    echo "Screenshot captured at screenshots/screenshot.png"
+    echo "##[endgroup]"
+  displayName: 'Start Emulator and Capture Screenshot'
