@@ -53,3 +53,8 @@ steps:
     echo "Screenshot captured at screenshots/screenshot.png"
     echo "##[endgroup]"
   displayName: 'Start Emulator and Capture Screenshot'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    path: 'screenshots'
+    artifactName: 'emulator-screenshot'
