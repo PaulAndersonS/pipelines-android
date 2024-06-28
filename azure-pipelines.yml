@@ -48,7 +48,7 @@ steps:
 - script: |
     echo "##[group]Capture Emulator Screenshot"
     mkdir -p screenshots
-    $ANDROID_HOME/platform-tools/adb shell screencap -p | sed 's/\r$//' > screenshot.png
+    $ANDROID_HOME/platform-tools/adb exec-out screencap -p > $(Build.ArtifactStagingDirectory)/screenshot.png
     mv screenshot.png screenshots/
     echo "Screenshot captured at screenshots/screenshot.png"
     echo "##[endgroup]"
